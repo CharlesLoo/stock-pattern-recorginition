@@ -1,0 +1,2 @@
+1. Time series segementation approaches
+    https://github.com/alchemyst/Segmentation
