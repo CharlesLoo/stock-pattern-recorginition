@@ -2,7 +2,7 @@
 
 # TensorFlow Object Detection Model Training
 
-This is a summary of [this nice tutorial]( https://medium.com/towards-data-science/how-to-train-your-own-object-detector-with-tensorflows-object-detector-api-bec72ecfe1d9).
+This is a summary of [this nice readme]( https://gist.github.com/douglasrizzo/c70e186678f126f1b9005ca83d8bd2ce).
 
 1. [Install TensorFlow](https://www.tensorflow.org/install/).
 
