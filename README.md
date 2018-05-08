@@ -9,6 +9,7 @@ This is a summary of [this nice readme]( https://gist.github.com/douglasrizzo/c7
 2. Download the TensorFlow [models repository](https://github.com/tensorflow/models).
 
 ## Annotating the dataset
+1. Fit the time serious with bottom-up or top-down segementation algorithms. 
 
 1. Install [labelImg](https://github.com/tzutalin/labelImg). This is a Python package, you can install via pip, but the one from GitHub is better. It saves annotations in the PASCAL VOC format.
 
