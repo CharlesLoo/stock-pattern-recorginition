@@ -1,0 +1,72 @@
+#HPC
+1.log in 
+	Linux 
+		ssh a1699138@phoenix.adelaide.edu.au
+	windows 		
+		ssh.exe a1699138@phoenix.adelaide.edu.au
+2 transfer files
+
+	to HPC
+		scp -r /home/charles/Documents/homework/project/StockPrediction-master/pattern_recogition/results/upload/* a1699138@data.phoenix.adelaide.edu.au:/home/a1699138/project/upload
+                
+                #When using the internet of uni
+		scp -r <local file or folder> a1699138@l01.phoenix.adelaide.edu.au:/fast/users/a1234567/<targetpath> 
+
+	from HPC
+		scp -r a1699138@data.phoenix.adelaide.edu.au:/fast/users/a1234567/<path to file or folder> <local targetpath>
+                scp -r a1699138@data.phoenix.adelaide.edu.au:/home/a1699138/project/upload/* /home/charles/Documents/homework/project/StockPrediction-master/pattern_recogition/results/upload
+
+
+3
+
+
+
+
+get training data
+1
+   cd get_data
+	python get_google_data.py
+    	
+
+3  label images with labelImg
+
+4  general xml with label
+	python xml2csv.py
+
+5  general tensorflow record
+	$ python general_tf_record.py --csv_input=labels/label_train/raccoon_labels.csv --output_path=labels/label_train/train.record
+	$ python general_tf_record.py --csv_input=labels/label_test/raccoon_labels.csv --output_path=labels/label_test/test.record
+	
+	
+
+
+
+#run model
+1 exprot library
+	$ export PYTHONPATH=$PYTHONPATH:/home/charles/Documents/homework/project/StockPrediction-master/pattern_recogition/models-master/research:/home/charles/Documents/homework/project/StockPrediction-master/pattern_recogition/models-master/research/slim
+
+
+2 train
+	$ python ../models-master/research/object_detection/train.py --logtostderr --pipeline_config_path=frcnn_resnet_50.config  --train_dir=train
+
+
+3 eval
+	$ python ../models-master/research/object_detection/eval.py --logtostderr --pipeline_config_path=frcnn_resnet_50.config  --checkpoint_dir=train/ --eval_dir=test
+
+4 check the tensorboard
+	$ tensorboard --logdir=test
+
+5 exp model
+
+        python ../models-master/research/object_detection/export_inference_graph.py --input_type image_tensor --pipeline_config_path frcnn_resnet_50.config  --trained_checkpoint_prefix train/model.ckpt-27223 --output_directory inference/output_inference_graph.pb
+
+  	python object_detection/export_inference_graph.py \
+    		--input_type image_tensor \
+    		--pipeline_config_path ${PIPELINE_CONFIG_PATH} \
+    		--trained_checkpoint_prefix ${TRAIN_PATH} \
+    		--output_directory ${EXPORT_DIR}
+
+
+
+
+  	 
