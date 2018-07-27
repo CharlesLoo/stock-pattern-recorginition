@@ -4,6 +4,7 @@ pattern recognition. This appraoce uses 2D candlestick chart as input instead of
 predict the stock trend. The reason for using 2D images is that images about the stock pricelike candlestick chart are more often used for stock investors and easier to understand. Compared with feeding with 1D vector, this approach almost does not need any preprocessing, and the model can feed with raw pixels. In addition, images can contain more
 than one time-series. Another reason is that Convolutional Neural network (CNN) is more
 stable.
+
 This approach can help traders at all levels to analyze stock market
 without much experience in the stock market. It can help investors find HAS patterns from
 the stock market quickly without many human resources. 185 head and shoulders (HAS)
@@ -16,13 +17,14 @@ noises from a simple chart. However, this method leads to a significant increase
 positives. Data variation method is a better way to solve this problem. The model fed with
 8000 variation images based on 30 original images has an AP@0.5IOU of 74% which
 increased 10% compared with the model with 150 original images.
+
 Followed pictures shows some generated images of trainning data.
 
-![图片说明1](https://github.com/liuhuakun/BrushShots/blob/master/1.PNG)
+![some generated images](https://github.com/CharlesLoo/stock-pattern-recorginition/blob/master/results/test_result_with_generated_data/variation.jpg)
 
 And the final result are shown in follow pictures.
 
-![图片说明1](https://github.com/liuhuakun/BrushShots/blob/master/1.PNG)
+![Some results of pattern recognition](https://github.com/CharlesLoo/stock-pattern-recorginition/blob/master/results/test_result_with_generated_data/whole.png）
 # TensorFlow Object Detection Model Training
 
 This is a summary of [this nice readme]( https://gist.github.com/douglasrizzo/c70e186678f126f1b9005ca83d8bd2ce).
