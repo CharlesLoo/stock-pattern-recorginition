@@ -23,6 +23,7 @@ Followed pictures shows some generated images of trainning data.
 ![some generated images](https://github.com/CharlesLoo/stock-pattern-recorginition/blob/master/results/test_result_with_generated_data/variation.jpg)
 
 The AP@0.5IOU is:
+
 ![AP](https://github.com/CharlesLoo/stock-pattern-recorginition/blob/master/results/test_result_with_generated_data/ap.png)
 
 And the final result are shown in follow pictures.
