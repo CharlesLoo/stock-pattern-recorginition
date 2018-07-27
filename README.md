@@ -22,9 +22,12 @@ Followed pictures shows some generated images of trainning data.
 
 ![some generated images](https://github.com/CharlesLoo/stock-pattern-recorginition/blob/master/results/test_result_with_generated_data/variation.jpg)
 
+The AP@0.5IOU is:
+![AP](https://github.com/CharlesLoo/stock-pattern-recorginition/blob/master/results/test_result_with_generated_data/ap.png)
+
 And the final result are shown in follow pictures.
 
-![Some results of pattern recognition](https://github.com/CharlesLoo/stock-pattern-recorginition/blob/master/results/test_result_with_generated_data/whole.png）
+![Some results of pattern recognition](https://github.com/CharlesLoo/stock-pattern-recorginition/blob/master/results/test_result_with_generated_data/whole.png)
 # TensorFlow Object Detection Model Training
 
 This is a summary of [this nice readme]( https://gist.github.com/douglasrizzo/c70e186678f126f1b9005ca83d8bd2ce).
