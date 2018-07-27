@@ -1,5 +1,28 @@
 # stock-pattern-recorginition
+In conclusion, this project presents a method with deep learning for head and shoulders (HAS)
+pattern recognition. This appraoce uses 2D candlestick chart as input instead of 1D vectors to
+predict the stock trend. The reason for using 2D images is that images about the stock pricelike candlestick chart are more often used for stock investors and easier to understand. Compared with feeding with 1D vector, this approach almost does not need any preprocessing, and the model can feed with raw pixels. In addition, images can contain more
+than one time-series. Another reason is that Convolutional Neural network (CNN) is more
+stable.
+This approach can help traders at all levels to analyze stock market
+without much experience in the stock market. It can help investors find HAS patterns from
+the stock market quickly without many human resources. 185 head and shoulders (HAS)
+patterns are collected and labeled from 20 stock indexes. FR-CNN is used to train a model
+with 150 of those images. As expected, with only 150 stock images, AP@0.5IOU is 64%.
+There still exists the over-fitting problem in this model, because of 150 images are not
+enough for training. To solve these over-fitting two methods are provided, including data
+segmentation method and data variation method. Data segmentation aims to remove
+noises from a simple chart. However, this method leads to a significant increase in false
+positives. Data variation method is a better way to solve this problem. The model fed with
+8000 variation images based on 30 original images has an AP@0.5IOU of 74% which
+increased 10% compared with the model with 150 original images.
+Followed pictures shows some generated images of trainning data.
 
+![图片说明1](https://github.com/liuhuakun/BrushShots/blob/master/1.PNG)
+
+And the final result are shown in follow pictures.
+
+![图片说明1](https://github.com/liuhuakun/BrushShots/blob/master/1.PNG)
 # TensorFlow Object Detection Model Training
 
 This is a summary of [this nice readme]( https://gist.github.com/douglasrizzo/c70e186678f126f1b9005ca83d8bd2ce).
