@@ -18,6 +18,17 @@ positives. Data variation method is a better way to solve this problem. The mode
 8000 variation images based on 30 original images has an AP@0.5IOU of 74% which
 increased 10% compared with the model with 150 original images.
 
+#stock pattern
+Head and shoulders Head and shoulders pattern is one of the most used patterns in stock analysis, becauseofitsdistinctiveshapewhichisdevelopedbytwotrendlineswhichconverge. This pattern always exists in an increase period. Two valley makes the support line (or neckline) while ﬁrst and third peak make the resistance line. Similar to ‘M’ and ‘W’ pattern, once the price breaks through the support line, the price would decrease, traders would better to sell after breaking through the support line. On the contract, if the price breaks the resistance line, it normally would increase continually. Therefore, it is a better trade strategy to buy after the price break the resistance line.
+
+FIGURE 3.6: Head and shoulders
+
+Inverse Head and shoulders Inverse head and shoulders pattern is the opposite of head and shoulders pattern. This pattern always exists in a drop period. Two shoulders make the support line while ﬁrst and second peak make the resistance line (or neckline). Similarly, traders would better to sell after breaking through the support line while buying after the price break the resistance line.
+
+FIGURE 3.7: Inverse head and shoulders
+
+Stockchartpatternsplayanimportantroleinthestockanalysisandpredictiontechnical and can be a powerful asset for traders at any level. It is a very basic level of priceactionswhichhappenedinanytimeperiod: monthly,dailyandintraday. Even for a beginner trader, if they can recognize these patterns early, they will gain a real competitive advantage in the markets. In this part, I implemented a deep learning model to recognize the common stock patterns which are helpful for any level of stock traders. More importantly, recognizing with computers is much quicker than ﬁnding out all patterns by humans. For example, it may only need a few minutes for computers to track intraday history data of all stock indexes while it may need a group of investors to work weeks. Besides saving time, a stock pattern recognition can also help the investment companies save a lot of human resources since a computer can do much more jobs than a human in a similar time period.
+
 Followed pictures shows some generated images of trainning data.
 
 ![some generated images](https://github.com/CharlesLoo/stock-pattern-recorginition/blob/master/results/test_result_with_generated_data/variation.jpg)
