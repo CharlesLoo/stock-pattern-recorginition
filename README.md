@@ -28,6 +28,33 @@ Inverse Head and shoulders Inverse head and shoulders pattern is the opposite of
 <div align=center><img width="350" height="350" src="https://github.com/CharlesLoo/stock-pattern-recorginition/blob/master/results/test_result_orginal/Ihas.PNG"/></div>
 
 Stockchartpatternsplayanimportantroleinthestockanalysisandpredictiontechnical and can be a powerful asset for traders at any level. It is a very basic level of priceactionswhichhappenedinanytimeperiod: monthly,dailyandintraday. Even for a beginner trader, if they can recognize these patterns early, they will gain a real competitive advantage in the markets. In this part, I implemented a deep learning model to recognize the common stock patterns which are helpful for any level of stock traders. More importantly, recognizing with computers is much quicker than ﬁnding out all patterns by humans. For example, it may only need a few minutes for computers to track intraday history data of all stock indexes while it may need a group of investors to work weeks. Besides saving time, a stock pattern recognition can also help the investment companies save a lot of human resources since a computer can do much more jobs than a human in a similar time period.
+# Data collection 
+Candlestick chart Similar to previous experiments, images represented history data would be used as input. Open, close, high and low price is used in the experiment, because of using a candlestick as input for feeding the Neural Network. The reason for using candlestickchartsasinputisthatcancandlestickchartsareoneofthemostcommonways for traders to analyze the stock market. It turns numeric data into a visualization form that can be understood by human easily. In a candlestick, there are at least 4 kinds of data: open, close, high and low, as shown in Fig. 3.12. High and low are representedwithlinesasuppershadowandlowershadow,whileopenandcloseare presented with sticks as real-body. When the close price is greater than open price, the real-body stick is colored with green to represent the increasing trend. Otherwise, it real-body stick is colored with red to represent a decreasing trend as shown in Fig. 3.13.
+
+<div align=center><img width="350" height="350" src="https://github.com/CharlesLoo/stockPrediction_CNN/blob/master/paper/candlesticks.PNG"/></div>
+
+<div align=center><img width="350" height="350" src="https://github.com/CharlesLoo/stock-pattern-recorginition/blob/master/results/test_result_orginal/input2.PNG"/></div>
+
+30 American stock indexes are picked, including ’AAPL’, ’ABT’, ’ABBV’, ’ACN’, ’ACE’, ’ADBE’, ’ADT’, ’AAP’, ’AES’,’AET’,’AFL’,’AMG’,’A’,’GAS’,’ARE’,’APD’,’AKAM’,’AA’,’AGN’,’MSFT’, ’GOOG’,’ALXN’,’OMC’, ’OKE’, ’ORCL’, ’OI’, ’PCAR’,’DLPH’, ’DAL’, ’XRAY’. Their intraday data are collected from Google Finance. Time period is from Mar 2017 to Mar 2018. 
+
+# Data segmentation 
+Stockpricechartcontainsalotofpointsandnoises,itisatime-consumingjobtodetectthepatternsfromthestockpricechartdirectly. Isiteasiertodetectpatternsafter reducing these noises? But it is difﬁcult to remove those noises on the candlestick chart. Therefore, it should be changed to line chart before fed into the network for training. This process can be described in Fig. 3.16. After changing into line chart, the label is same, therefore it can be trained directly without labeling again. After training,trainedmodelcanbeusedtestedwithatestedlinechart. Thenabounding box would be obtained. Finally, the same bounding box can be drawn, because the bounding box on the line chart and candlestick chart are same. 
+
+
+
+<div align=center><img width="550" height="550" src="https://github.com/CharlesLoo/stock-pattern-recorginition/blob/master/results/test_result_orginal/ds.PNG"/></div>
+
+# Generate variation data 
+Anotherwayforsolvingtoaddmoretrainingdataandthisisthemostcommonway in deep learning. However, it is impossible to label thousands or millions of images from the actual datasets that would take too much time. Therefore, this work provides an approach to general some variation data to instead of real stock data for training. This is because even the stock market is volatile, stock pattern recognition is based on the shapes of patterns. The recognition model only considers the shape of the pattern, therefore no matter the shapes from variation data or real data, they areallcanbeusedfortraining. AsshowninFig.3.20,greencirclerepresentsallHAS patterns in the real-world, blue circle means 150 labeled HAS patterns in original images, and the red circle is generated variation data. It is obvious that those 150 images cannot cover all HAS patterns in the real-world, which leads to the overﬁttingproblem. AlthoughgeneratedvariationdatacannotcoverallrealHASpatterns and has some data that not included in real data, it has the ability to increase the covered area of training data.
+
+Variation can be divided into 2 steps:
+a) P1 = P1 + P1 * r1, P3 = P3 + P3 * r3
+b) P2 = P2 - (P1 * r1 + P3 * r3) 
+The ﬁrst step means the variation of the ﬁrst peak and third peak. R1 and r3 mean the percentage that the ﬁrst peak and third peak will change. P1, P2, and P3 mean each peak. These values are between -0.7 and 0.7, which means each peak can remove or insert at most 70% of their data. If the number is negative, the related peak will remove some data points according to the number uniformly. If the number is positive, related peak ﬁrst needs to insert data points. Finally, the second peak will insert or delete some data points according to the total changed point. Fig. 3.22 shows the process of variation on X-axis.
+
+<div align=center><img width="650" height="450" src="https://github.com/CharlesLoo/stock-pattern-recorginition/blob/master/results/test_result_orginal/vx.PNG"/></div>
+
+<div align=center><img width="450" height="350" src="https://github.com/CharlesLoo/stock-pattern-recorginition/blob/master/results/test_result_orginal/x.PNG"/></div>
 
 Followed pictures shows some generated images of trainning data.
 
